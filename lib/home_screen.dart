@@ -5,9 +5,45 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Hello World!'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('App de componentes de flutter'),
+      ),
+      body: ListView(
+        children: const [
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+          Text('Hola mundo'),
+        ],
       ),
     );
   }
