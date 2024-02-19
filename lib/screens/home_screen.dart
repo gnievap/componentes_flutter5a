@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:practica3_5a24/theme/app_theme.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
           ListTile(
             title: Text(
               'Entradas',
-              style: GoogleFonts.getFont('Oswald'),
+              style: AppTheme.lightTheme.textTheme.headlineLarge,
               //style: Theme.of(context).textTheme.headlineLarge,
             ),
             subtitle: Text(
