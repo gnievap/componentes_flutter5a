@@ -19,14 +19,18 @@ class AppTheme {
         fontSize: 26.0,
         fontWeight: FontWeight.bold,
         color: primaryColor,
+        decoration: TextDecoration.underline,
+        decorationColor: primaryColor,
+        decorationStyle: TextDecorationStyle.double,
+        decorationThickness: 1.5,
       ),
 
       // Fuente para textos muy pequeños
       bodySmall: GoogleFonts.montserrat(
-        fontSize: 16.0,
-        fontWeight: FontWeight.w500,
-        color: secondaryColor,
-      ),
+          fontSize: 18.0,
+          fontWeight: FontWeight.w500,
+          color: secondaryColor,
+          fontStyle: FontStyle.italic),
     ),
   );
 }
