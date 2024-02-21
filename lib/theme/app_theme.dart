@@ -15,19 +15,19 @@ class AppTheme {
     appBarTheme: const AppBarTheme(color: primaryColor),
     textTheme: TextTheme(
       // Títulos de primer nivel
-      headlineLarge: GoogleFonts.acme(
-        fontSize: 26.0,
-        fontWeight: FontWeight.bold,
+      headlineLarge: GoogleFonts.pacifico(
+        fontSize: 28.0,
+        fontWeight: FontWeight.w500,
         color: primaryColor,
         decoration: TextDecoration.underline,
         decorationColor: primaryColor,
         decorationStyle: TextDecorationStyle.double,
-        decorationThickness: 1.5,
+        decorationThickness: 0.5,
       ),
 
       // Fuente para textos muy pequeños
-      bodySmall: GoogleFonts.montserrat(
-          fontSize: 18.0,
+      bodySmall: GoogleFonts.lobsterTwo(
+          fontSize: 22.0,
           fontWeight: FontWeight.w500,
           color: secondaryColor,
           fontStyle: FontStyle.italic),
