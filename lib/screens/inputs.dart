@@ -9,27 +9,69 @@ class Inputs extends StatefulWidget {
 }
 
 class _InputsState extends State<Inputs> {
+  bool valueSwitch = false;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Entradas',
+        ),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            'Ventana de entradas',
+            style: AppTheme.lightTheme.textTheme.headlineLarge,
+          ),
+          entradaTexto(),
+          entradaSwitch(),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              ElevatedButton(
+                  onPressed: null,
+                  child: Text(
+                    'Regresar',
+                  )),
+              ElevatedButton(
+                  onPressed: null,
+                  child: Text(
+                    'DataScreen',
+                  )),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  TextField entradaTexto() {
+    return TextField(
+      style: AppTheme.lightTheme.textTheme.headlineMedium,
+      decoration: InputDecoration(
+        border: const UnderlineInputBorder(),
+        labelText: 'Escribe tu nombre:',
+        labelStyle: AppTheme.lightTheme.textTheme.headlineLarge,
+      ),
+    );
+  }
+
+  Row entradaSwitch() {
+    return Row(
       children: [
         Text(
-          'Ventana de entradas',
+          '¿Te gusta flutter?',
           style: AppTheme.lightTheme.textTheme.headlineLarge,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ElevatedButton(
-                onPressed: null,
-                child: Text(
-                  'Regresar',
-                  style: AppTheme.lightTheme.textTheme.headlineLarge,
-                )),
-            const ElevatedButton(onPressed: null, child: Text('DataScreen')),
-          ],
-        ),
+        Switch(
+            value: valueSwitch,
+            onChanged: (value) {
+              setState(() {
+                valueSwitch = value;
+              });
+            }),
       ],
     );
   }
