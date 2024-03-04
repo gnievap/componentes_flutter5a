@@ -10,6 +10,7 @@ class Inputs extends StatefulWidget {
 
 class _InputsState extends State<Inputs> {
   bool valueSwitch = false;
+  double sliderValue = 0.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,29 +19,32 @@ class _InputsState extends State<Inputs> {
           'Entradas',
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            'Ventana de entradas',
-            style: AppTheme.lightTheme.textTheme.headlineLarge,
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            entradaTexto(),
+            entradaSwitch(),
+            entradaSlider(),
+            const ElevatedButton(
+              onPressed: null,
+              child: Text(
+                'Guardar',
+              ),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Inicio',
           ),
-          entradaTexto(),
-          entradaSwitch(),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                  onPressed: null,
-                  child: Text(
-                    'Regresar',
-                  )),
-              ElevatedButton(
-                  onPressed: null,
-                  child: Text(
-                    'DataScreen',
-                  )),
-            ],
+          BottomNavigationBarItem(
+            icon: Icon(Icons.next_plan),
+            label: 'Datos',
           ),
         ],
       ),
@@ -61,6 +65,7 @@ class _InputsState extends State<Inputs> {
   Row entradaSwitch() {
     return Row(
       children: [
+        const FlutterLogo(),
         Text(
           '¿Te gusta flutter?',
           style: AppTheme.lightTheme.textTheme.headlineLarge,
@@ -70,6 +75,29 @@ class _InputsState extends State<Inputs> {
             onChanged: (value) {
               setState(() {
                 valueSwitch = value;
+              });
+            }),
+      ],
+    );
+  }
+
+  Column entradaSlider() {
+    return Column(
+      children: [
+        Text(
+          '¿Qué tanto te gusta Flutter?',
+          style: AppTheme.lightTheme.textTheme.headlineLarge,
+        ),
+        Slider(
+            min: 0.0,
+            max: 10.0,
+            value: sliderValue,
+            divisions: 10,
+            label: '${sliderValue.round()}',
+            onChanged: (value) {
+              setState(() {
+                sliderValue = value;
+                //print('Valor del slider: $sliderValue');
               });
             }),
       ],
