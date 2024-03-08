@@ -48,10 +48,10 @@ class AppTheme {
         fontSize: 30.0,
         fontWeight: FontWeight.w500,
         color: primaryColor,
-        decoration: TextDecoration.underline,
-        decorationColor: primaryColor,
-        decorationStyle: TextDecorationStyle.double,
-        decorationThickness: 0.5,
+        // decoration: TextDecoration.underline,
+        // decorationColor: primaryColor,
+        // decorationStyle: TextDecorationStyle.double,
+        // decorationThickness: 0.5,
       ),
 
       headlineMedium: GoogleFonts.alexandria(

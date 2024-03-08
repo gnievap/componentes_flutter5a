@@ -30,8 +30,9 @@ class HomeScreen extends StatelessWidget {
               Icons.input_rounded,
               color: AppTheme.primaryColor,
             ),
-            trailing: const CircularProgressIndicator(
-              value: 0.85,
+            trailing: const Icon(
+              Icons.arrow_right_outlined,
+              color: AppTheme.primaryColor,
             ),
             // trailing: const Icon(
             //   Icons.arrow_right_outlined,

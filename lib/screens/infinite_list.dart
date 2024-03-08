@@ -10,8 +10,10 @@ class InfiniteList extends StatefulWidget {
 class _InfiniteListState extends State<InfiniteList> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Lista infinita'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Lista'),
+      ),
     );
   }
 }

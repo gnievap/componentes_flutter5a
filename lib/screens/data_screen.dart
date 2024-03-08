@@ -5,8 +5,10 @@ class DataScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Datos de las entradas'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Datos'),
+      ),
     );
   }
 }
