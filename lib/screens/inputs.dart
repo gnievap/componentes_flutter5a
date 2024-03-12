@@ -44,12 +44,7 @@ class _InputsState extends State<Inputs> {
                   style: AppTheme.lightTheme.textTheme.headlineLarge,
                 ),
                 entradasCheck(),
-                const ElevatedButton(
-                  onPressed: null,
-                  child: Text(
-                    'Guardar',
-                  ),
-                ),
+                button(),
               ],
             ),
           ),
@@ -111,6 +106,15 @@ class _InputsState extends State<Inputs> {
       selectedIndex = index;
       Navigator.push(context, ruta);
     });
+  }
+
+  ElevatedButton button() {
+    return const ElevatedButton(
+      onPressed: null,
+      child: Text(
+        'Guardar',
+      ),
+    );
   }
 
   TextField entradaTexto() {
