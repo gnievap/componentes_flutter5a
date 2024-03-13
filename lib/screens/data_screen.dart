@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practica3_5a24/models/data.dart';
 import 'package:practica3_5a24/screens/home_screen.dart';
 import 'package:practica3_5a24/screens/images_screen.dart';
 import 'package:practica3_5a24/screens/infinite_list.dart';
@@ -6,7 +7,8 @@ import 'package:practica3_5a24/screens/notifications.dart';
 import 'package:practica3_5a24/theme/app_theme.dart';
 
 class DataScreen extends StatefulWidget {
-  const DataScreen({super.key});
+  final Data datos;
+  const DataScreen({super.key, required this.datos});
 
   @override
   State<DataScreen> createState() => _DataScreenState();

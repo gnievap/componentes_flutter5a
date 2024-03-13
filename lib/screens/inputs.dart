@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:practica3_5a24/models/data.dart';
+import 'package:practica3_5a24/screens/data_screen.dart';
 import 'package:practica3_5a24/screens/home_screen.dart';
 import 'package:practica3_5a24/screens/images_screen.dart';
 import 'package:practica3_5a24/screens/infinite_list.dart';
@@ -13,9 +16,10 @@ class Inputs extends StatefulWidget {
 }
 
 class _InputsState extends State<Inputs> {
+  String? nombre;
   bool valueSwitch = false;
   double sliderValue = 0.0;
-  int foodRadio = 0;
+  String? foodRadio;
   bool postreCheck1 = false;
   bool postreCheck2 = false;
   bool postreCheck3 = false;
@@ -101,6 +105,8 @@ class _InputsState extends State<Inputs> {
       case 3:
         ruta = MaterialPageRoute(builder: (context) => const ImagesScreen());
         break;
+      case 4: // No aplicable en navegadores
+        SystemChannels.platform.invokeMethod('SystemNavigator.pop');
     }
     setState(() {
       selectedIndex = index;
@@ -109,9 +115,23 @@ class _InputsState extends State<Inputs> {
   }
 
   ElevatedButton button() {
-    return const ElevatedButton(
-      onPressed: null,
-      child: Text(
+    return ElevatedButton(
+      onPressed: () {
+        Data data = Data(
+            nomb: nombre!,
+            flutter: valueSwitch,
+            calif: sliderValue.round(),
+            food: foodRadio!,
+            icecream: postreCheck1,
+            choco: postreCheck2,
+            cake: postreCheck3);
+        MaterialPageRoute ruta = MaterialPageRoute(
+            builder: (context) => DataScreen(
+                  datos: data,
+                ));
+        Navigator.push(context, ruta);
+      },
+      child: const Text(
         'Guardar',
       ),
     );
@@ -125,6 +145,9 @@ class _InputsState extends State<Inputs> {
         labelText: 'Escribe tu nombre:',
         labelStyle: AppTheme.lightTheme.textTheme.headlineLarge,
       ),
+      onChanged: (text) {
+        nombre = text;
+      },
     );
   }
 
@@ -183,7 +206,7 @@ class _InputsState extends State<Inputs> {
             style: AppTheme.lightTheme.textTheme.bodySmall,
           ),
           leading: Radio(
-            value: 1,
+            value: 'Tacos al pastor',
             groupValue: foodRadio,
             onChanged: (value) {
               setState(() {
@@ -199,7 +222,7 @@ class _InputsState extends State<Inputs> {
             style: AppTheme.lightTheme.textTheme.bodySmall,
           ),
           leading: Radio(
-            value: 2,
+            value: 'Chileatole',
             groupValue: foodRadio,
             onChanged: (value) {
               setState(() {
